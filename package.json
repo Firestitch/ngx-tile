@@ -1,11 +1,11 @@
 {
-  "name": "@firestitch/package",
-  "title": "package.json -> Rename Title to Component Title",
-  "description": "@firestitch/package",
-  "version": "7.0.0",
+  "name": "@firestitch/tile",
+  "title": "Tile",
+  "description": "@firestitch/tile",
+  "version": "8.0.1",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Firestitch/ngx-package"
+    "url": "https://github.com/Firestitch/ngx-tile"
   },
   "author": {
     "name": "Firestitch",
