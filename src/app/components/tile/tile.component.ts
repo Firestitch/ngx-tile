@@ -1,6 +1,6 @@
 import { FsTileLabelDirective } from './../../directives/tile-label.directive';
 import { FsTileContentDirective } from './../../directives/tile-content.directive';
-import { ChangeDetectionStrategy, Component, HostBinding, Input, TemplateRef, ViewChild, ContentChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, Input, TemplateRef, ContentChild, OnChanges, OnInit } from '@angular/core';
 
 @Component({
   selector: 'fs-tile',
@@ -8,7 +8,7 @@ import { ChangeDetectionStrategy, Component, HostBinding, Input, TemplateRef, Vi
   styleUrls: [ 'tile.component.scss' ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FsTileComponent {
+export class FsTileComponent implements OnChanges, OnInit {
 
   @ContentChild(FsTileContentDirective, { read: TemplateRef, static: true })
   public contentTemplate: TemplateRef<FsTileContentDirective> = null;
@@ -16,7 +16,7 @@ export class FsTileComponent {
   @ContentChild(FsTileLabelDirective, { read: TemplateRef, static: true })
   public labelTemplate: TemplateRef<FsTileLabelDirective> = null;
 
-  @HostBinding('class.fs-tile') fsTile = true;
+  @HostBinding('class') class;
 
   @HostBinding('style.background') styleBackground;
 
@@ -24,6 +24,27 @@ export class FsTileComponent {
     this.styleBackground = value;
   }
 
+  @Input('theme') set theme(value) {
+    this._theme = value;
+    this.updateClass();
+  }
+
+  private _theme: 'dark' | 'light' = 'dark';
+
   constructor() {
+  }
+
+  public updateClass() {
+    const classes = ['fs-tile'];
+    classes.push(`theme-${this._theme}`);
+    this.class = classes.join(' ');
+  }
+
+  public ngOnChanges() {
+    this.updateClass();
+  }
+
+  public ngOnInit() {
+    this.updateClass();
   }
 }

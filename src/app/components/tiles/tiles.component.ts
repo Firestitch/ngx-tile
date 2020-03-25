@@ -17,6 +17,7 @@ export class FsTilesComponent implements AfterContentInit, OnDestroy {
   @ContentChildren(FsTileComponent) tiles: QueryList<FsTileComponent>;
 
   @Input() background;
+  @Input() theme;
 
   private _destroy$ = new Subject();
 
@@ -41,7 +42,13 @@ export class FsTilesComponent implements AfterContentInit, OnDestroy {
 
   private _updateTiles() {
     this.tiles.forEach((item: FsTileComponent) => {
-      item.background = this.background;
+      if (this.background) {
+        item.background = this.background;
+      }
+
+      if (this.theme) {
+        item.theme = this.theme;
+      }
     });
   }
 }

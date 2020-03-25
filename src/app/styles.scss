@@ -1,21 +1,29 @@
 .fs-tile {
   .label {
     font-size: 75%;
+    color: #A2ADB9;
   }
 
   .content {
-    font-size: 120%;
-    padding-top: 5px;
+    font-size: 125%;
+    color: #393C4A;
   }
 
-  background-color: #ccc;
+  background-color: #fff;
   border-radius: 4px;
   padding: 10px;
-  color: #fff;
   display: inline-flex;
   flex-direction: column;
   min-width: 100px;
   margin: 2px;
+
+
+  &.theme-dark {
+    .label,
+    .content {
+      color: #fff;
+    }
+  }
 }
 
 
@@ -28,7 +36,7 @@
 
   $primary: mat-palette($theme);
 
-  .fs-tile {
+  .fs-tile.theme-dark {
     background: rgba(mat-color($primary), 1);
   }
 }

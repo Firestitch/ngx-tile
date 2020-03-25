@@ -1,14 +1,28 @@
-<fs-tiles>
-  <fs-tile>
-    <ng-template fsTileLabel>Status</ng-template>
-    <ng-template fsTileContent>Active</ng-template>
-  </fs-tile>
-  <fs-tile>
-    <ng-template fsTileLabel>Estimate</ng-template>
-    <ng-template fsTileContent>10-50h</ng-template>
-  </fs-tile>
-  <fs-tile>
-    <ng-template fsTileLabel>Due Date</ng-template>
-    <ng-template fsTileContent>Jan 30</ng-template>
-  </fs-tile>
-</fs-tiles>
+<h2>Dark Theme</h2>
+
+<ng-container *ngTemplateOutlet="tiles"></ng-container>
+
+
+<h2>Light Theme</h2>
+<div class="light-box">
+  <ng-container *ngTemplateOutlet="tiles; context:{ theme: 'light' }"></ng-container>
+</div>
+
+
+<ng-template #tiles let-theme="theme">
+
+  <fs-tiles [theme]="theme">
+    <fs-tile>
+      <ng-template fsTileLabel>Status</ng-template>
+      <ng-template fsTileContent>Active</ng-template>
+    </fs-tile>
+    <fs-tile>
+      <ng-template fsTileLabel>Estimate</ng-template>
+      <ng-template fsTileContent>10-50h</ng-template>
+    </fs-tile>
+    <fs-tile>
+      <ng-template fsTileLabel>Due Date</ng-template>
+      <ng-template fsTileContent>Jan 30</ng-template>
+    </fs-tile>
+  </fs-tiles>
+</ng-template>
