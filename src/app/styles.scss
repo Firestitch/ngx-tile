@@ -1,4 +1,7 @@
 .fs-tile {
+  box-sizing: border-box;
+  padding-right: 5px;
+
   .label {
     font-size: 75%;
     color: #A2ADB9;
@@ -9,13 +12,16 @@
     color: #393C4A;
   }
 
-  background-color: #fff;
-  border-radius: 4px;
-  padding: 10px;
-  display: inline-flex;
-  flex-direction: column;
-  min-width: 100px;
-  margin: 2px;
+  .wrapper {
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 10px;
+    display: inline-flex;
+    flex-direction: column;
+    min-width: 100px;
+    margin-top: 5px;
+    box-sizing: border-box;
+  }
 
 
   &.theme-dark {
@@ -27,16 +33,28 @@
 }
 
 
-.fs-tiles {
+fs-tiles {
   display: flex;
   flex-wrap: wrap;
+  margin-top: -5px;
 }
 
 @mixin fs-tile($theme) {
 
   $primary: mat-palette($theme);
 
-  .fs-tile.theme-dark {
+  .fs-tile.theme-dark .wrapper {
     background: rgba(mat-color($primary), 1);
+  }
+}
+
+
+@media (max-width: 600px) {
+  .fs-tile {
+    width: 50%;
+
+    .wrapper {
+      width: 100%;
+    }
   }
 }
