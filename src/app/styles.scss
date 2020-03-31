@@ -2,6 +2,10 @@
   box-sizing: border-box;
   padding-right: 5px;
 
+  &:last-child {
+    padding-right: 0;
+  }
+
   .label {
     font-size: 75%;
     color: #A2ADB9;
