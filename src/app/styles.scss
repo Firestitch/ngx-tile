@@ -48,7 +48,7 @@ fs-tiles {
   $primary: mat-palette($theme);
 
   .fs-tile.theme-dark .wrapper {
-    background: rgba(mat-color($primary), 1);
+    background: mat-color($primary);
   }
 }
 
