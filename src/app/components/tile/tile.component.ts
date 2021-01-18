@@ -16,6 +16,8 @@ export class FsTileComponent implements OnChanges, OnInit {
   @ContentChild(FsTileLabelDirective, { read: TemplateRef, static: true })
   public labelTemplate: TemplateRef<FsTileLabelDirective> = null;
 
+  @Input() public customClass: string = null;
+
   @HostBinding('class') class;
 
   @HostBinding('style.background') styleBackground;
@@ -36,6 +38,10 @@ export class FsTileComponent implements OnChanges, OnInit {
 
   public updateClass() {
     const classes = ['fs-tile'];
+    if (this.customClass) {
+      classes.push(this.customClass);
+    }
+
     classes.push(`theme-${this._theme}`);
     this.class = classes.join(' ');
   }
