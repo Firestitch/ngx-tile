@@ -1,10 +1,5 @@
 .fs-tile {
   box-sizing: border-box;
-  padding-right: 5px;
-
-  &:last-child {
-    padding-right: 0;
-  }
 
   .label {
     font-size: 75%;
@@ -23,10 +18,9 @@
     display: inline-flex;
     flex-direction: column;
     min-width: 100px;
-    margin-top: 5px;
     box-sizing: border-box;
+    height: 100%;
   }
-
 
   &.theme-dark {
     .label,
@@ -36,11 +30,10 @@
   }
 }
 
-
 fs-tiles {
   display: flex;
   flex-wrap: wrap;
-  margin-top: -5px;
+  gap: 5px;
 }
 
 @mixin fs-tile($theme) {
@@ -55,7 +48,7 @@ fs-tiles {
 
 @media (max-width: 600px) {
   .fs-tile {
-    width: 50%;
+    width: calc(50% - (5px / 2));
 
     .wrapper {
       width: 100%;
