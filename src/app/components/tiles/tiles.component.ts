@@ -1,7 +1,12 @@
-import { ChangeDetectionStrategy, Component, Input, QueryList, AfterContentInit, ContentChildren, HostBinding, OnDestroy } from '@angular/core';
-import { FsTileComponent } from '../tile/tile.component';
+import {
+  ChangeDetectionStrategy, Component, Input, QueryList, AfterContentInit,
+  ContentChildren, HostBinding, OnDestroy, ViewEncapsulation,
+} from '@angular/core';
+
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+
+import { FsTileComponent } from '../tile/tile.component';
 
 
 @Component({
@@ -9,12 +14,15 @@ import { takeUntil } from 'rxjs/operators';
   templateUrl: 'tiles.component.html',
   styleUrls: [ 'tiles.component.scss' ],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
 })
 export class FsTilesComponent implements AfterContentInit, OnDestroy {
 
-  @HostBinding('class.fs-tiles') fsTiles = true;
+  @HostBinding('class.fs-tiles')
+  public fsTiles = true;
 
-  @ContentChildren(FsTileComponent) tiles: QueryList<FsTileComponent>;
+  @ContentChildren(FsTileComponent)
+  public tiles: QueryList<FsTileComponent>;
 
   @Input() background;
   @Input() theme;

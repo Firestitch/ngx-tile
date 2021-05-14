@@ -1,12 +1,16 @@
 import { FsTileLabelDirective } from './../../directives/tile-label.directive';
 import { FsTileContentDirective } from './../../directives/tile-content.directive';
-import { ChangeDetectionStrategy, Component, HostBinding, Input, TemplateRef, ContentChild, OnChanges, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy, Component, HostBinding, Input, TemplateRef,
+  ContentChild, OnChanges, OnInit, ViewEncapsulation,
+} from '@angular/core';
 
 @Component({
   selector: 'fs-tile',
   templateUrl: 'tile.component.html',
   styleUrls: [ 'tile.component.scss' ],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
 })
 export class FsTileComponent implements OnChanges, OnInit {
 
