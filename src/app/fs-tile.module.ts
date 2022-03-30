@@ -25,7 +25,7 @@ import { FsTileComponent } from './components/tile/tile.component';
   ]
 })
 export class FsTileModule {
-  static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders<FsTileModule> {
     return {
       ngModule: FsTileModule
     };

@@ -1,8 +1,9 @@
+@use '~@angular/material' as mat;
 @mixin fs-tile($theme) {
 
-  $primary: mat-palette($theme);
+  $primary: mat.define-palette($theme);
 
   .fs-tile.theme-dark .wrapper {
-    background: mat-color($primary);
+    background: mat.get-color-from-palette($primary);
   }
 }
