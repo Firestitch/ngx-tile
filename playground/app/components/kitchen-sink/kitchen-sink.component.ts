@@ -14,7 +14,6 @@ export class KitchenSinkComponent {
   public test = false;
   constructor(private exampleComponent: FsExampleComponent,
               private message: FsMessage) {
-    exampleComponent.setConfigureComponent(KitchenSinkConfigureComponent, { config: this.config });
 
     setTimeout(() => {
       this.test = true;
