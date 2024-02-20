@@ -21,26 +21,23 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  bootstrap: [AppComponent],
-  imports: [
-    BrowserModule,
-    FsTileModule,
-    BrowserAnimationsModule,
-    AppMaterialModule,
-    FormsModule,
-    FsExampleModule.forRoot(),
-    FsMessageModule.forRoot(),
-    RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' }),
-  ],
-  entryComponents: [
-    KitchenSinkConfigureComponent
-  ],
-  declarations: [
-    AppComponent,
-    ExamplesComponent,
-    KitchenSinkComponent,
-    KitchenSinkConfigureComponent
-  ],
+    bootstrap: [AppComponent],
+    imports: [
+        BrowserModule,
+        FsTileModule,
+        BrowserAnimationsModule,
+        AppMaterialModule,
+        FormsModule,
+        FsExampleModule.forRoot(),
+        FsMessageModule.forRoot(),
+        RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' }),
+    ],
+    declarations: [
+        AppComponent,
+        ExamplesComponent,
+        KitchenSinkComponent,
+        KitchenSinkConfigureComponent
+    ]
 })
 export class PlaygroundModule {
 }
