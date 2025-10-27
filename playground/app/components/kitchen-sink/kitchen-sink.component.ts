@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { KitchenSinkConfigureComponent } from '../kitchen-sink-configure';
 import { FsExampleComponent } from '@firestitch/example';
 import { FsMessage } from '@firestitch/message';
@@ -16,11 +16,13 @@ import { FsTileContentDirective } from '../../../../src/app/directives/tile-cont
     imports: [NgTemplateOutlet, FsTilesComponent, FsTileComponent, FsTileLabelDirective, FsTileContentDirective]
 })
 export class KitchenSinkComponent {
+  private exampleComponent = inject(FsExampleComponent);
+  private message = inject(FsMessage);
+
 
   public config = {};
   public test = false;
-  constructor(private exampleComponent: FsExampleComponent,
-              private message: FsMessage) {
+  constructor() {
 
     setTimeout(() => {
       this.test = true;
