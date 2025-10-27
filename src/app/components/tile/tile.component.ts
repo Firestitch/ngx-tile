@@ -4,13 +4,16 @@ import {
   ChangeDetectionStrategy, Component, HostBinding, Input, TemplateRef,
   ContentChild, OnChanges, OnInit, ViewEncapsulation,
 } from '@angular/core';
+import { NgTemplateOutlet } from '@angular/common';
 
 @Component({
-  selector: 'fs-tile',
-  templateUrl: 'tile.component.html',
-  styleUrls: [ 'tile.component.scss' ],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None,
+    selector: 'fs-tile',
+    templateUrl: 'tile.component.html',
+    styleUrls: ['tile.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    encapsulation: ViewEncapsulation.None,
+    standalone: true,
+    imports: [NgTemplateOutlet],
 })
 export class FsTileComponent implements OnChanges, OnInit {
 

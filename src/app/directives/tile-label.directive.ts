@@ -2,7 +2,8 @@ import { Directive } from '@angular/core';
 
 
 @Directive({
-  selector: '[fsTileLabel]',
+    selector: '[fsTileLabel]',
+    standalone: true,
 })
 export class FsTileLabelDirective {
 

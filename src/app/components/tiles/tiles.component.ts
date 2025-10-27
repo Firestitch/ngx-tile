@@ -10,11 +10,12 @@ import { FsTileComponent } from '../tile/tile.component';
 
 
 @Component({
-  selector: 'fs-tiles',
-  templateUrl: 'tiles.component.html',
-  styleUrls: [ 'tiles.component.scss' ],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None,
+    selector: 'fs-tiles',
+    templateUrl: 'tiles.component.html',
+    styleUrls: ['tiles.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    encapsulation: ViewEncapsulation.None,
+    standalone: true,
 })
 export class FsTilesComponent implements AfterContentInit, OnDestroy {
 

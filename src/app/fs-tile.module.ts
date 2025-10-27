@@ -8,21 +8,19 @@ import { FsTileComponent } from './components/tile/tile.component';
 
 
 @NgModule({
-  imports: [
-    CommonModule,
-  ],
-  exports: [
-    FsTileComponent,
-    FsTilesComponent,
-    FsTileContentDirective,
-    FsTileLabelDirective
-  ],
-  declarations: [
-    FsTileComponent,
-    FsTilesComponent,
-    FsTileContentDirective,
-    FsTileLabelDirective
-  ]
+    imports: [
+        CommonModule,
+        FsTileComponent,
+        FsTilesComponent,
+        FsTileContentDirective,
+        FsTileLabelDirective,
+    ],
+    exports: [
+        FsTileComponent,
+        FsTilesComponent,
+        FsTileContentDirective,
+        FsTileLabelDirective
+    ]
 })
 export class FsTileModule {
   static forRoot(): ModuleWithProviders<FsTileModule> {
