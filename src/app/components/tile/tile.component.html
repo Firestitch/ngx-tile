@@ -1,9 +1,15 @@
-<div class="wrapper">
-  <div class="content">
+<div
+    class="wrapper"
+    [style.backgroundColor]="backgroundColor">
+  <div
+      class="content"
+      [style.color]="textColor">
     <ng-container *ngTemplateOutlet="contentTemplate"></ng-container>
   </div>
 
-  <div class="label">
+  <div
+      class="label"
+      [style.color]="textColor">
     <ng-container *ngTemplateOutlet="labelTemplate"></ng-container>
   </div>
 </div>

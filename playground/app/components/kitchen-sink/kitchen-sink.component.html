@@ -9,6 +9,23 @@
 </div>
 
 
+<h2>Status Colors</h2>
+<fs-tiles>
+  <fs-tile backgroundColor="#43A047">
+    <ng-template fsTileLabel>Status</ng-template>
+    <ng-template fsTileContent>Active</ng-template>
+  </fs-tile>
+  <fs-tile backgroundColor="#FB8C00">
+    <ng-template fsTileLabel>Status</ng-template>
+    <ng-template fsTileContent>Pending</ng-template>
+  </fs-tile>
+  <fs-tile backgroundColor="#E53935">
+    <ng-template fsTileLabel>Status</ng-template>
+    <ng-template fsTileContent>Closed</ng-template>
+  </fs-tile>
+</fs-tiles>
+
+
 <ng-template #tiles let-theme="theme">
 
   <fs-tiles [theme]="theme">

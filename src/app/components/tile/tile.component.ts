@@ -25,15 +25,30 @@ export class FsTileComponent implements OnChanges, OnInit {
 
   @Input() public customClass: string = null;
 
+  /**
+   * The tile's own background and text color, applied inline to the wrapper and
+   * to the label/content. Inline so they win over the app's theme, which colors
+   * .theme-dark .wrapper from the Material primary palette.
+   */
+  @Input() public backgroundColor: string = null;
+
   @HostBinding('class') class;
 
-  @HostBinding('style.background') styleBackground;
+  /**
+   * An explicit color always wins. Otherwise a tile given its own background
+   * picks black or white text by YIQ contrast — the same rule fs-chip uses —
+   * because the theme's white-on-dark default is unreadable on a light one.
+   * With no background at all, the theme's own colors apply.
+   */
+  public get textColor(): string {
+    if (!this.backgroundColor) {
+      return null;
+    }
 
-  @Input('background') set background(value) {
-    this.styleBackground = value;
+    return this.isContrastYIQBlack(this.backgroundColor) ? '#393C4A' : '#fff';
   }
 
-  @Input('theme') set theme(value) {
+  @Input() public set theme(value: 'dark' | 'light') {
     this._theme = value;
     this.updateClass();
   }
@@ -59,5 +74,15 @@ export class FsTileComponent implements OnChanges, OnInit {
 
   public ngOnInit() {
     this.updateClass();
+  }
+
+  private isContrastYIQBlack(hexcolor: string): boolean {
+    const hex = hexcolor.replace('#', '');
+    const r = parseInt(hex.substr(0, 2), 16);
+    const g = parseInt(hex.substr(2, 2), 16);
+    const b = parseInt(hex.substr(4, 2), 16);
+    const yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+
+    return yiq >= 200;
   }
 }
